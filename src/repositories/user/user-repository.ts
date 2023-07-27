@@ -1,8 +1,8 @@
 import { Repository } from 'typeorm';
 import { IUserRepository } from './iuser-repository';
 import { injectable } from 'tsyringe';
-import { AppDataSource } from '../../data_source';
 import { User } from '../../entities/user';
+import { AppDataSource } from '../../database/data_source';
 
 @injectable()
 class UserRepository implements IUserRepository {
@@ -13,7 +13,7 @@ class UserRepository implements IUserRepository {
     }
 
     public async getAllUsers(): Promise<User[]> {
-        return this.userRepository.find();
+        return await this.userRepository.find();
     }
 
     // async getUserById(id: number): Promise<User | undefined> {
@@ -21,7 +21,7 @@ class UserRepository implements IUserRepository {
     // }
 
     public async createUser(user: User): Promise<User> {
-        return this.userRepository.save(user);
+        return await this.userRepository.save(user);
     }
 
     // public async updateUser(id: number, updatedUser: User): Promise<User | undefined> {
