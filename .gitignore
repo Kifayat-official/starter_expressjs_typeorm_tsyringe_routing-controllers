@@ -1,7 +1,9 @@
 .idea/
 .vscode/
+.sqlite/
 node_modules/
 build/
 tmp/
 temp/
 dist/
+data/

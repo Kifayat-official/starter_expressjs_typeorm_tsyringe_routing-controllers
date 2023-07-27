@@ -12,7 +12,7 @@ useContainer(tsyringeAdapter);
         await AppDataSource.initialize();
 
         const routingControllersOptions = {
-            controllers: [`${__dirname}/controllers/*.ts`],
+            controllers: [`${__dirname}/controllers/*{.js,.ts}`],
         };
 
         const app = createExpressServer(routingControllersOptions)
